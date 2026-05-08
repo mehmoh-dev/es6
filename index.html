@@ -1,80 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ECMAScript 6 for React Beginners</title>
-  <link rel="stylesheet" href="ecmascript6-react.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ECMAScript 6 for React Beginners</title>
+    <link rel="stylesheet" href="ecmascript6-react.css" />
 </head>
+
 <body>
-  <div class="page-shell">
-    <header class="hero">
-      <div>
-        <p class="eyebrow">Beginner Guide</p>
-        <h1>ECMAScript 6 in React JS</h1>
-        <p class="intro">
-          Learn the most useful ES6 features that make React code easier to understand, write, and maintain.
-          This page shows simple examples and clear explanations for beginners.
-        </p>
-      </div>
-      <div class="hero-code">
-        <pre><code class="inline-code">import React from 'react';</code></pre>
-      </div>
-    </header>
+    <div class="page-shell">
+        <header class="hero">
+            <div>
+                <p class="eyebrow">Beginner Guide</p>
+                <h1>ECMAScript 6 in React JS</h1>
+                <p class="intro">
+                    Learn the most useful ES6 features that make React code easier to understand, write, and maintain. This page shows simple examples and clear explanations for beginners.
+                </p>
+            </div>
+            <div class="hero-code">
+                <pre><code class="inline-code">import React from 'react';</code></pre>
+            </div>
+        </header>
 
-    <main class="content">
-      <section class="section card">
-        <h2>What is ES6?</h2>
-        <p>
-          ECMAScript 6, also called ES2015, introduced modern JavaScript features that work especially well with React.
-          These language improvements help you write cleaner components, manage data more safely, and avoid repeated code.
-        </p>
-        <div class="note-box">
-          <strong>Note:</strong> ES6 is now standard in modern React development. Learning it will make React easier to use.
-        </div>
-      </section>
+        <main class="content">
+            <section class="section card">
+                <h2>What is ES6?</h2>
+                <p>
+                    ECMAScript 6, also called ES2015, introduced modern JavaScript features that work especially well with React. These language improvements help you write cleaner components, manage data more safely, and avoid repeated code.
+                </p>
+                <div class="note-box">
+                    <strong>Note:</strong> ES6 is now standard in modern React development. Learning it will make React easier to use.
+                </div>
+            </section>
 
-      <section class="section card">
-        <h2>Core ES6 features used in React</h2>
-        <dl class="definition-list">
-          <div>
-            <dt>Arrow functions</dt>
-            <dd>Shorter function syntax for components and event handlers.</dd>
-          </div>
-          <div>
-            <dt>Const and let</dt>
-            <dd>Use <code>const</code> for values that do not change and <code>let</code> for variables that do.</dd>
-          </div>
-          <div>
-            <dt>Destructuring</dt>
-            <dd>Extract values from props or objects with fewer lines of code.</dd>
-          </div>
-          <div>
-            <dt>Spread syntax</dt>
-            <dd>Copy array or object data without changing the original values.</dd>
-          </div>
-          <div>
-            <dt>Template literals</dt>
-            <dd>Create strings with embedded expressions and readable formatting.</dd>
-          </div>
-          <div>
-            <dt>Modules</dt>
-            <dd>Import and export components using a clear, reusable structure.</dd>
-          </div>
-        </dl>
-      </section>
+            <section class="section card">
+                <h2>What is ES6 and why do we use it in React?</h2>
+                <p>
+                    ES6 (ECMAScript 2015) is the modern version of JavaScript that makes React code cleaner and more readable. Most React features, like Hooks and Components, rely heavily on these features.
+                </p>
+                <p>
+                    <strong>Why does this matter?</strong> Without ES6, React would be much more verbose (wordy). These features allow you to write complex UI logic with very few lines of code.
+                </p>
+            </section>
 
-      <section class="section card">
-        <div class="section-header">
-          <h2>React example with ES6</h2>
-          <p class="section-subtitle">
-            This example shows a simple React app using hooks and ES6 features. Read each part carefully.
-          </p>
-        </div>
+            <section class="section card">
+                <h2>1. Arrow Functions</h2>
+                <p>Arrow functions provide a shorter syntax for writing functions. They are used for defining components and handling events.</p>
 
-        <div class="code-block">
-          <div class="code-heading">App.jsx</div>
-          <pre><code>
+                <div class="comparison">
+                    <div class="code-example">
+                        <div class="code-label">❌ Before ES6:</div>
+                        <div class="code-block">
+                            <pre><code>
+function Welcome() {
+  return &lt;h1&gt;Hello!&lt;/h1&gt;;
+}
+                            </code></pre>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <div class="code-label">✅ With ES6 (React Standard):</div>
+                        <div class="code-block">
+                            <pre><code>
+const Welcome = () => {
+  return &lt;h1&gt;Hello!&lt;/h1&gt;;
+};
+                            </code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="explanation">
+                    Arrow functions make components shorter and easier to read. The <code>=&gt;</code> is called "arrow" syntax.
+                </p>
+            </section>
+
+            <section class="section card">
+                <h2>2. Destructuring</h2>
+                <p>
+                    This allows you to "unpack" values from objects into distinct variables. This is the standard way to handle props in React components.
+                </p>
+
+                <div class="code-block">
+                    <div class="code-heading">Example:</div>
+                    <pre><code>
+// Instead of using 'props.name' and 'props.age'
+const UserProfile = ({ name, age }) => {
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Name: {name}&lt;/p&gt;
+      &lt;p&gt;Age: {age}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+};
+                    </code></pre>
+                </div>
+
+                <p class="explanation">
+                    Instead of writing <code>props.name</code>, you can directly use <code>name</code>. This makes your code cleaner and easier to read at a glance.
+                </p>
+            </section>
+
+            <section class="section card">
+                <h2>3. Template Literals</h2>
+                <p>
+                    Template literals use backticks (`) and <code>${'{}'}</code> to join strings and variables easily. This is great for dynamic CSS classes and dynamic strings.
+                </p>
+
+                <div class="code-block">
+                    <div class="code-heading">Example:</div>
+                    <pre><code>
+const status = "active";
+const isDisabled = false;
+
+// Generates: &lt;button class="btn btn-active"&gt;
+&lt;button className={`btn btn-${status} ${isDisabled ? 'disabled' : ''}`}&gt;
+  Click Me
+&lt;/button&gt;
+                    </code></pre>
+                </div>
+
+                <p class="explanation">
+                    With template literals, you can embed variables directly into strings using <code>${'{}'}</code>. This makes dynamic class names and conditional styling much easier.
+                </p>
+            </section>
+
+            <section class="section card">
+                <h2>4. The Spread Operator (...)</h2>
+                <p>
+                    The spread operator allows you to quickly copy all or part of an existing object or array into another. This is essential when updating state in React.
+                </p>
+
+                <div class="code-block">
+                    <div class="code-heading">Example (Updating State):</div>
+                    <pre><code>
+const [user, setUser] = useState({ name: 'John', age: 25 });
+
+// Update age while keeping the name unchanged
+setUser({ ...user, age: 26 });
+
+// Instead of doing this (which might delete other properties):
+// setUser({ age: 26 }); // WRONG! This deletes the name
+                    </code></pre>
+                </div>
+
+                <p class="explanation">
+                    The spread operator <code>{'{ ...user }'}</code> copies all properties from <code>user</code>, then the <code>age: 26</code> overwrites just the age. This is called an "immutable update" and is very important in React.
+                </p>
+            </section>
+
+            <section class="section card">
+                <h2>5. Map Method (.map())</h2>
+                <p>
+                    In React, we use <code>.map()</code> to iterate through an array and generate a list of elements. This is how you display lists in React.
+                </p>
+
+                <div class="code-block">
+                    <div class="code-heading">Example:</div>
+                    <pre><code>
+const products = ['Laptop', 'Phone', 'Tablet'];
+
+const ProductList = () => (
+  &lt;ul&gt;
+    {products.map((item, index) => (
+      &lt;li key={index}&gt;{item}&lt;/li&gt;
+    ))}
+  &lt;/ul&gt;
+);
+
+// Output:
+// &lt;ul&gt;
+//   &lt;li&gt;Laptop&lt;/li&gt;
+//   &lt;li&gt;Phone&lt;/li&gt;
+//   &lt;li&gt;Tablet&lt;/li&gt;
+// &lt;/ul&gt;
+                    </code></pre>
+                </div>
+
+                <p class="explanation">
+                    <code>.map()</code> loops through each item in the array and creates a new element for each one. Always use a unique <code>key</code> (like <code>key={item.id}</code>) to help React keep track of list items.
+                </p>
+            </section>
+
+            <section class="section card">
+                <div class="section-header">
+                    <h2>React example with ES6</h2>
+                    <p class="section-subtitle">
+                        This example shows a simple React app using hooks and ES6 features. Read each part carefully.
+                    </p>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-heading">App.jsx</div>
+                    <pre><code>
 import React, { useState } from 'react';
 
 const TodoItem = ({ id, text, completed, onToggle }) => {
@@ -124,44 +244,45 @@ const App = () => {
 
 export default App;
           </code></pre>
-        </div>
-      </section>
+                </div>
+            </section>
 
-      <section class="section card grid-2">
-        <article>
-          <h3>Why this code is beginner-friendly</h3>
-          <ul>
-            <li>Each component is small and focused.</li>
-            <li>Props are passed clearly to child components.</li>
-            <li>The state update uses an immutable pattern with spread syntax.</li>
-            <li>Event handlers use arrow functions for easier context.</li>
-          </ul>
-        </article>
-        <article>
-          <h3>What to remember</h3>
-          <ul>
-            <li><code>const</code> is best for values that do not change.</li>
-            <li>Use destructuring to access props like <code>{'{ id, text, completed }'}</code>.</li>
-            <li>Spread syntax <code>{'{ ...todo }'}</code> copies object values safely.</li>
-            <li>JSX looks like HTML but uses JavaScript expressions inside curly braces.</li>
-          </ul>
-        </article>
-      </section>
+            <section class="section card grid-2">
+                <article>
+                    <h3>Why this code is beginner-friendly</h3>
+                    <ul>
+                        <li>Each component is small and focused.</li>
+                        <li>Props are passed clearly to child components.</li>
+                        <li>The state update uses an immutable pattern with spread syntax.</li>
+                        <li>Event handlers use arrow functions for easier context.</li>
+                    </ul>
+                </article>
+                <article>
+                    <h3>What to remember</h3>
+                    <ul>
+                        <li><code>const</code> is best for values that do not change.</li>
+                        <li>Use destructuring to access props like <code>{'{ id, text, completed }'}</code>.</li>
+                        <li>Spread syntax <code>{'{ ...todo }'}</code> copies object values safely.</li>
+                        <li>JSX looks like HTML but uses JavaScript expressions inside curly braces.</li>
+                    </ul>
+                </article>
+            </section>
 
-      <section class="section card">
-        <h2>Beginner tips</h2>
-        <ul>
-          <li>Start by writing one component at a time.</li>
-          <li>Use <code>console.log()</code> when you want to inspect props or state.</li>
-          <li>Check your browser console for errors when JSX does not compile.</li>
-          <li>Remember that every component must return a single root element.</li>
-        </ul>
-      </section>
-    </main>
+            <section class="section card">
+                <h2>Beginner tips</h2>
+                <ul>
+                    <li>Start by writing one component at a time.</li>
+                    <li>Use <code>console.log()</code> when you want to inspect props or state.</li>
+                    <li>Check your browser console for errors when JSX does not compile.</li>
+                    <li>Remember that every component must return a single root element.</li>
+                </ul>
+            </section>
+        </main>
 
-    <footer class="footer">
-      <p>Use this guide as a starting point for building React apps with ES6 syntax.</p>
-    </footer>
-  </div>
+        <footer class="footer">
+            <p>Use this guide as a starting point for building React apps with ES6 syntax.</p>
+        </footer>
+    </div>
 </body>
+
 </html>
