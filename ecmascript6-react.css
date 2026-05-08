@@ -149,6 +149,32 @@ li {
     margin-bottom: 12px;
 }
 
+.comparison {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 20px 0;
+}
+
+.code-example {
+    display: grid;
+    gap: 10px;
+}
+
+.code-label {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.explanation {
+    margin-top: 16px;
+    padding: 16px;
+    border-radius: 18px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+}
+
 .code-block {
     margin-top: 20px;
     overflow-x: auto;
@@ -195,7 +221,8 @@ pre {
 
 @media (max-width: 840px) {
     .grid-2,
-    .pattern-grid {
+    .pattern-grid,
+    .comparison {
         grid-template-columns: 1fr;
     }
 }
