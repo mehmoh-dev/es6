@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECMAScript 6 for React Beginners</title>
+  <link rel="stylesheet" href="ecmascript6-react.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Beginner Guide</p>
+        <h1>ECMAScript 6 in React JS</h1>
+        <p class="intro">
+          Learn the most useful ES6 features that make React code easier to understand, write, and maintain.
+          This page shows simple examples and clear explanations for beginners.
+        </p>
+      </div>
+      <div class="hero-code">
+        <pre><code class="inline-code">import React from 'react';</code></pre>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="section card">
+        <h2>What is ES6?</h2>
+        <p>
+          ECMAScript 6, also called ES2015, introduced modern JavaScript features that work especially well with React.
+          These language improvements help you write cleaner components, manage data more safely, and avoid repeated code.
+        </p>
+        <div class="note-box">
+          <strong>Note:</strong> ES6 is now standard in modern React development. Learning it will make React easier to use.
+        </div>
+      </section>
+
+      <section class="section card">
+        <h2>Core ES6 features used in React</h2>
+        <dl class="definition-list">
+          <div>
+            <dt>Arrow functions</dt>
+            <dd>Shorter function syntax for components and event handlers.</dd>
+          </div>
+          <div>
+            <dt>Const and let</dt>
+            <dd>Use <code>const</code> for values that do not change and <code>let</code> for variables that do.</dd>
+          </div>
+          <div>
+            <dt>Destructuring</dt>
+            <dd>Extract values from props or objects with fewer lines of code.</dd>
+          </div>
+          <div>
+            <dt>Spread syntax</dt>
+            <dd>Copy array or object data without changing the original values.</dd>
+          </div>
+          <div>
+            <dt>Template literals</dt>
+            <dd>Create strings with embedded expressions and readable formatting.</dd>
+          </div>
+          <div>
+            <dt>Modules</dt>
+            <dd>Import and export components using a clear, reusable structure.</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="section card">
+        <div class="section-header">
+          <h2>React example with ES6</h2>
+          <p class="section-subtitle">
+            This example shows a simple React app using hooks and ES6 features. Read each part carefully.
+          </p>
+        </div>
+
+        <div class="code-block">
+          <div class="code-heading">App.jsx</div>
+          <pre><code>
+import React, { useState } from 'react';
+
+const TodoItem = ({ id, text, completed, onToggle }) => {
+  return (
+    <li className={completed ? 'todo-item completed' : 'todo-item'}>
+      <label>
+        <input
+          type="checkbox"
+          checked={completed}
+          onChange={() => onToggle(id)}
+        />
+        {text}
+      </label>
+    </li>
+  );
+};
+
+const TodoList = ({ todos, onToggleTodo }) => (
+  <ul>
+    {todos.map(todo => (
+      <TodoItem key={todo.id} {...todo} onToggle={onToggleTodo} />
+    ))}
+  </ul>
+);
+
+const App = () => {
+  const [todos, setTodos] = useState([
+    { id: 1, text: 'Learn React basics', completed: false },
+    { id: 2, text: 'Use ES6 features', completed: true },
+  ]);
+
+  const handleToggleTodo = id => {
+    setTodos(prevTodos =>
+      prevTodos.map(todo =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+
+  return (
+    <main className="app-shell">
+      <h3>My Todo List</h3>
+      <TodoList todos={todos} onToggleTodo={handleToggleTodo} />
+    </main>
+  );
+};
+
+export default App;
+          </code></pre>
+        </div>
+      </section>
+
+      <section class="section card grid-2">
+        <article>
+          <h3>Why this code is beginner-friendly</h3>
+          <ul>
+            <li>Each component is small and focused.</li>
+            <li>Props are passed clearly to child components.</li>
+            <li>The state update uses an immutable pattern with spread syntax.</li>
+            <li>Event handlers use arrow functions for easier context.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>What to remember</h3>
+          <ul>
+            <li><code>const</code> is best for values that do not change.</li>
+            <li>Use destructuring to access props like <code>{'{ id, text, completed }'}</code>.</li>
+            <li>Spread syntax <code>{'{ ...todo }'}</code> copies object values safely.</li>
+            <li>JSX looks like HTML but uses JavaScript expressions inside curly braces.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section card">
+        <h2>Beginner tips</h2>
+        <ul>
+          <li>Start by writing one component at a time.</li>
+          <li>Use <code>console.log()</code> when you want to inspect props or state.</li>
+          <li>Check your browser console for errors when JSX does not compile.</li>
+          <li>Remember that every component must return a single root element.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Use this guide as a starting point for building React apps with ES6 syntax.</p>
+    </footer>
+  </div>
+</body>
+</html>
